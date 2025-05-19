@@ -1,2 +1,2 @@
-# Mygala
+# mygala
 Help learners know what to do after matric/graduation 
