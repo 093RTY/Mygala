@@ -2,65 +2,127 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MyGALA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MyGALA - Life After Matric</title>
   <style>
     body {
       background-color: #121212;
-      color: #e0e0e0;
+      color: #f0f0f0;
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
       padding: 0;
     }
+
     header {
       background-color: #1e1e1e;
-      padding: 20px;
+      padding: 30px;
       text-align: center;
-      font-size: 24px;
     }
-    .section {
-      padding: 20px;
+
+    header h1 {
+      font-size: 2.5em;
+      margin: 0;
     }
+
+    nav {
+      background-color: #222;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: #ddd;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #fff;
+    }
+
+    .container {
+      padding: 30px 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+
     button {
-      background-color: #3b3b3b;
-      color: white;
-      padding: 10px 20px;
+      background-color: #333;
+      color: #fff;
+      padding: 12px 24px;
       border: none;
+      font-size: 16px;
+      margin-top: 20px;
       cursor: pointer;
+      border-radius: 5px;
     }
+
     button:hover {
-      background-color: #5c5c5c;
+      background-color: #555;
+    }
+
+    ul {
+      margin-top: 20px;
+      padding-left: 20px;
+    }
+
+    footer {
+      background-color: #1e1e1e;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #888;
+      margin-top: 40px;
     }
   </style>
 </head>
 <body>
+
   <header>
-    Welcome to MyGALA
+    <h1>Welcome to MyGALA</h1>
+    <p>Your guide to life after Matric or Graduation</p>
   </header>
-  <div class="section">
-    <p>What should you do after Matric?</p>
-    <button onclick="showOptions()">Show Options</button>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Resources</a>
+    <a href="#">Scholarships</a>
+    <a href="#">Career Tips</a>
+  </nav>
+
+  <div class="container">
+    <h2>Feeling lost after school? You're not alone.</h2>
+    <p>MyGALA helps you explore your next steps — whether it’s further education, starting a business, or learning a skill.</p>
+    
+    <button onclick="showOptions()">Show me my options</button>
+
     <ul id="options" style="display:none;"></ul>
   </div>
 
+  <footer>
+    &copy; 2025 MyGALA. Made to guide your journey.
+  </footer>
+
   <script>
     function showOptions() {
-      const options = [
-        "Apply to University or College",
-        "Learn a Trade or Skill (TVET)",
-        "Start a Business",
-        "Look for Internships or Learnerships",
-        "Take a Gap Year and Volunteer"
-      ];
       const list = document.getElementById("options");
+      const paths = [
+        "Apply to university or college",
+        "Study at a TVET college or do skills training",
+        "Look for internships or learnerships",
+        "Start a small business or side hustle",
+        "Volunteer or take a gap year to gain experience"
+      ];
       list.innerHTML = "";
-      options.forEach(option => {
+      paths.forEach(p => {
         const li = document.createElement("li");
-        li.textContent = option;
+        li.textContent = p;
         list.appendChild(li);
       });
       list.style.display = "block";
     }
   </script>
+
 </body>
 </html>
