@@ -38,28 +38,24 @@
 
     .container {
       padding: 30px 20px;
-      max-width: 800px;
+      max-width: 900px;
       margin: auto;
     }
 
-    h2 {
+    .resource {
+      background-color: #1e1e1e;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+    }
+
+    .resource h3 {
+      color: #4dabf7;
       margin-top: 0;
     }
 
-    ul {
-      padding-left: 20px;
-    }
-
-    li {
-      margin-bottom: 15px;
-    }
-
-    a.resource-link {
-      color: #4dabf7;
-      text-decoration: none;
-    }
-
-    a.resource-link:hover {
+    .resource a {
+      color: #7ecfff;
       text-decoration: underline;
     }
 
@@ -76,39 +72,49 @@
 <body>
 
   <header>
-    <h1>Resources</h1>
-    <p>Explore opportunities, training, and guidance for your future.</p>
+    <h1>Useful Resources</h1>
+    <p>Explore websites, apps, and platforms to help you build your future</p>
   </header>
 
   <nav>
     <a href="index.html">Home</a>
     <a href="resources.html">Resources</a>
-    <a href="#">Scholarships</a>
-    <a href="#">Career Tips</a>
+    <a href="scholarships.html">Scholarships</a>
+    <a href="careertips.html">Career Tips</a>
+    <a href="contact.html">Contact</a>
+    <a href="about.html">About</a>
   </nav>
 
   <div class="container">
-    <h2>Education & Training</h2>
-    <ul>
-      <li><a class="resource-link" href="https://www.nsfas.org.za/" target="_blank">NSFAS - Financial Aid</a></li>
-      <li><a class="resource-link" href="https://www.tvetcolleges.co.za/" target="_blank">TVET Colleges in South Africa</a></li>
-      <li><a class="resource-link" href="https://www.careerhelp.org.za/" target="_blank">Career Help from SAQA</a></li>
-    </ul>
 
-    <h2>Learnerships & Jobs</h2>
-    <ul>
-      <li><a class="resource-link" href="https://sayouth.mobi/" target="_blank">SAYouth.mobi - Free job and work opportunities</a></li>
-      <li><a class="resource-link" href="https://www.skillsportal.co.za/" target="_blank">Skills Portal - Learnerships & Internships</a></li>
-    </ul>
+    <div class="resource">
+      <h3>NSFAS (Financial Aid)</h3>
+      <p>Apply for funding for university or college in South Africa.</p>
+      <a href="https://www.nsfas.org.za" target="_blank">Visit NSFAS</a>
+    </div>
 
-    <h2>Start Your Own Thing</h2>
-    <ul>
-      <li><a class="resource-link" href="https://www.nyda.gov.za/" target="_blank">NYDA - Youth Funding & Business Support</a></li>
-    </ul>
+    <div class="resource">
+      <h3>Career Portal SA</h3>
+      <p>Browse job opportunities, internships, and bursaries in SA.</p>
+      <a href="https://www.careerportal.co.za" target="_blank">Visit Career Portal</a>
+    </div>
+
+    <div class="resource">
+      <h3>University Applications</h3>
+      <p>Check university websites for applications and deadlines.</p>
+      <a href="https://www.universityapplications.co.za" target="_blank">Visit Application Site</a>
+    </div>
+
+    <div class="resource">
+      <h3>LinkedIn Learning</h3>
+      <p>Free courses to improve your career, communication, or tech skills.</p>
+      <a href="https://www.linkedin.com/learning/" target="_blank">Visit LinkedIn Learning</a>
+    </div>
+
   </div>
 
   <footer>
-    &copy; 2025 MyGALA. Empowering the next generation.
+    &copy; 2025 MyGALA | Empowering learners beyond school
   </footer>
 
 </body>
