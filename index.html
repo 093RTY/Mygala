@@ -1,10 +1,15 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MyGALA - Life After Matric</title>
+  <title>MyGALA - Home</title>
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       background-color: #121212;
       color: #f0f0f0;
@@ -12,18 +17,20 @@
       margin: 0;
       padding: 0;
     }
-<button id="dark-mode-toggle" style="position: fixed; top: 20px; right: 20px; padding: 10px 20px; background-color: #333; color: white; border: none; border-radius: 5px; cursor: pointer;">
-  Toggle Dark Mode
-</button>
+
+    body.dark-mode {
+      background-color: #f4f4f4;
+      color: #121212;
+    }
+
     header {
       background-color: #1e1e1e;
-      padding: 30px;
+      padding: 40px;
       text-align: center;
     }
 
-    header h1 {
-      font-size: 2.5em;
-      margin: 0;
+    body.dark-mode header {
+      background-color: #e0e0e0;
     }
 
     nav {
@@ -45,28 +52,8 @@
 
     .container {
       padding: 30px 20px;
-      max-width: 800px;
+      max-width: 900px;
       margin: auto;
-    }
-
-    button {
-      background-color: #333;
-      color: #fff;
-      padding: 12px 24px;
-      border: none;
-      font-size: 16px;
-      margin-top: 20px;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-
-    button:hover {
-      background-color: #555;
-    }
-
-    ul {
-      margin-top: 20px;
-      padding-left: 20px;
     }
 
     footer {
@@ -77,53 +64,77 @@
       color: #888;
       margin-top: 40px;
     }
+
+    #dark-mode-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    body.dark-mode #dark-mode-toggle {
+      background-color: #ccc;
+      color: #000;
+    }
+
   </style>
 </head>
 <body>
 
+  <!-- Dark Mode Toggle Button -->
+  <button id="dark-mode-toggle">Toggle Dark Mode</button>
+
   <header>
     <h1>Welcome to MyGALA</h1>
-    <p>Your guide to life after Matric or Graduation</p>
+    <p>Your future starts here</p>
   </header>
 
   <nav>
-    <a href="#">Home</a>
-    <a href="#">Resources</a>
-    <a href="#">Scholarships</a>
-    <a href="#">Career Tips</a>
+    <a href="index.html">Home</a>
+    <a href="resources.html">Resources</a>
+    <a href="scholarships.html">Scholarships</a>
+    <a href="careertips.html">Career Tips</a>
+    <a href="contact.html">Contact</a>
+    <a href="about.html">About</a>
+    <a href="faq.html">FAQ</a>
   </nav>
 
   <div class="container">
-    <h2>Feeling lost after school? You're not alone.</h2>
-    <p>MyGALA helps you explore your next steps — whether it’s further education, starting a business, or learning a skill.</p>
-    
-    <button onclick="showOptions()">Show me my options</button>
+    <h2>Explore Opportunities</h2>
+    <p>MyGALA helps you find your path after school — whether it's university, a learnership, a job, or something creative.</p>
 
-    <ul id="options" style="display:none;"></ul>
+    <h3>What You’ll Find:</h3>
+    <ul>
+      <li>Scholarship programs</li>
+      <li>Career advice and tools</li>
+      <li>University application help</li>
+      <li>Resources for funding and skills</li>
+    </ul>
   </div>
 
   <footer>
-    &copy; 2025 MyGALA. Made to guide your journey.
+    &copy; 2025 MyGALA | Empowering learners beyond school
   </footer>
 
+  <!-- Dark Mode JavaScript -->
   <script>
-    function showOptions() {
-      const list = document.getElementById("options");
-      const paths = [
-        "Apply to university or college",
-        "Study at a TVET college or do skills training",
-        "Look for internships or learnerships",
-        "Start a small business or side hustle",
-        "Volunteer or take a gap year to gain experience"
-      ];
-      list.innerHTML = "";
-      paths.forEach(p => {
-        const li = document.createElement("li");
-        li.textContent = p;
-        list.appendChild(li);
-      });
-      list.style.display = "block";
+    const toggleButton = document.getElementById('dark-mode-toggle');
+    const body = document.body;
+
+    if (localStorage.getItem('darkMode') === 'true') {
+      body.classList.add('dark-mode');
     }
+
+    toggleButton.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      localStorage.setItem('darkMode', body.classList.contains('dark-mode') ? 'true' : 'false');
+    });
   </script>
 
 </body>
