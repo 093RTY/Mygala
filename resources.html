@@ -1,6 +1,5 @@
 
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,128 +10,182 @@
       color: #fff;
       font-family: Arial, sans-serif;
       margin: 0;
-      padding: 20px;
-    }
+    }header {
+  background-color: #1e1e1e;
+  padding: 20px;
+  text-align: center;
+}
 
-    h2 {
-      text-align: center;
-      color: #ffd700;
-    }
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #ffd700;
+}
 
-    .career-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 20px;
-    }
+nav {
+  margin-top: 10px;
+}
 
-    @media (min-width: 600px) {
-      .career-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
+nav a {
+  color: #fff;
+  margin: 0 10px;
+  text-decoration: none;
+}
 
-    .career-card {
-      background-color: #1e1e1e;
-      padding: 15px;
-      border-radius: 10px;
-      display: flex;
-      align-items: flex-start;
-      gap: 15px;
-    }
+h2 {
+  text-align: center;
+  color: #ffd700;
+  padding: 20px;
+  font-size: 2rem;
+}
 
-    .career-card img {
-      width: 60px;
-      height: 60px;
-      object-fit: contain;
-    }
+.search-bar {
+  display: flex;
+  justify-content: center;
+  padding: 10px 20px;
+}
 
-    .career-info h4 {
-      margin: 0 0 5px;
-      color: #ffd700;
-    }
+.search-bar input {
+  padding: 10px;
+  font-size: 16px;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 8px;
+  border: none;
+}
 
-    .career-info p {
-      margin: 0;
-      font-size: 14px;
-    }
+.career-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  padding: 20px;
+}
+
+@media (min-width: 768px) {
+  .career-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.career-card {
+  background-color: #1e1e1e;
+  padding: 20px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+}
+
+.career-card img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+.career-info h4 {
+  margin: 0 0 10px;
+  font-size: 1.3rem;
+  color: #ffd700;
+}
+
+.career-info p {
+  margin: 5px 0;
+  font-size: 1rem;
+}
+
   </style>
 </head>
 <body>
-  <h2>Career Paths, Subjects & Duration</h2>
-  <div class="career-grid">
+  <header>
+    <h1>MyGALA Career Resources</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="resources.html">Resources</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>  <h2>Career Paths, Subjects & Duration</h2>  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search careers...">
+  </div>  <div class="career-grid" id="careerGrid">
+    <!-- Career cards below -->
+  </div>  <script>
+    const careers = [
+      {
+        title: "Doctor",
+        subjects: "Life Sciences, Physical Science, Math",
+        duration: "6–7 years",
+        image: "1b57fd81c2282b432b85dc6a8a01fa3d.jpg"
+      },
+      {
+        title: "Software Developer",
+        subjects: "Math, IT / CAT",
+        duration: "3–4 years",
+        image: "1f87b29a2da2df46100975aa86b170a21cb.jpg"
+      },
+      {
+        title: "Lawyer",
+        subjects: "English, History",
+        duration: "4–5 years",
+        image: "a19c3c749b0f94be739b8f86313573bb.jpg"
+      },
+      {
+        title: "Engineer",
+        subjects: "Math, Physical Science",
+        duration: "4 years",
+        image: "985576d92172230dfa08ce0a7f9065.jpg"
+      },
+      {
+        title: "Teacher",
+        subjects: "English, Subject to teach",
+        duration: "4 years",
+        image: "7a67965cb2759c1fb55e0ca428b218a8.jpg"
+      },
+      {
+        title: "Fashion Designer",
+        subjects: "Visual Arts, Business",
+        duration: "3 years",
+        image: "2e54a0ee5a46fac72c01aee1984cf8b4.jpg"
+      },
+      {
+        title: "Psychologist",
+        subjects: "Life Sciences, English",
+        duration: "6 years",
+        image: "a2a4c1bcda5a433afbf169c00235f847.jpg"
+      },
+      {
+        title: "Pilot",
+        subjects: "Math, Physics, English",
+        duration: "18–36 months",
+        image: "dbf3507f8bb2c5e35a3f1c3020467a4d.jpg"
+      }
+    ];
 
-    <div class="career-card">
-      <img src="1b57fd81c2282b432b85dc6a8a01fa3d.jpg" alt="Doctor Icon">
-      <div class="career-info">
-        <h4>Doctor</h4>
-        <p><strong>Subjects:</strong> Life Sciences, Physical Science, Math</p>
-        <p><strong>Duration:</strong> 6–7 years</p>
-      </div>
-    </div>
+    const careerGrid = document.getElementById("careerGrid");
 
-    <div class="career-card">
-      <img src="1f87b29a2da2df46100975aa86b170a21cb.jpg" alt="Software Developer Icon">
-      <div class="career-info">
-        <h4>Software Developer</h4>
-        <p><strong>Subjects:</strong> Math, IT / CAT</p>
-        <p><strong>Duration:</strong> 3–4 years</p>
-      </div>
-    </div>
+    function renderCareers(list) {
+      careerGrid.innerHTML = list.map(career => `
+        <div class="career-card">
+          <img src="${career.image}" alt="${career.title} Icon">
+          <div class="career-info">
+            <h4>${career.title}</h4>
+            <p><strong>Subjects:</strong> ${career.subjects}</p>
+            <p><strong>Duration:</strong> ${career.duration}</p>
+          </div>
+        </div>
+      `).join("");
+    }
 
-    <div class="career-card">
-      <img src="a19c3c749b0f94be739b8f86313573bb.jpg" alt="Lawyer Icon">
-      <div class="career-info">
-        <h4>Lawyer</h4>
-        <p><strong>Subjects:</strong> English, History</p>
-        <p><strong>Duration:</strong> 4–5 years</p>
-      </div>
-    </div>
+    document.getElementById("searchInput").addEventListener("input", e => {
+      const search = e.target.value.toLowerCase();
+      const filtered = careers.filter(c =>
+        c.title.toLowerCase().includes(search) ||
+        c.subjects.toLowerCase().includes(search)
+      );
+      renderCareers(filtered);
+    });
 
-    <div class="career-card">
-      <img src="985576d92172230dfa08ce0a7f9065.jpg" alt="Engineer Icon">
-      <div class="career-info">
-        <h4>Engineer</h4>
-        <p><strong>Subjects:</strong> Math, Physical Science</p>
-        <p><strong>Duration:</strong> 4 years</p>
-      </div>
-    </div>
-
-    <div class="career-card">
-      <img src="7a67965cb2759c1fb55e0ca428b218a8.jpg" alt="Teacher Icon">
-      <div class="career-info">
-        <h4>Teacher</h4>
-        <p><strong>Subjects:</strong> English, Subject to teach</p>
-        <p><strong>Duration:</strong> 4 years</p>
-      </div>
-    </div>
-
-    <div class="career-card">
-      <img src="2e54a0ee5a46fac72c01aee1984cf8b4.jpg" alt="Fashion Designer Icon">
-      <div class="career-info">
-        <h4>Fashion Designer</h4>
-        <p><strong>Subjects:</strong> Visual Arts, Business</p>
-        <p><strong>Duration:</strong> 3 years</p>
-      </div>
-    </div>
-
-    <div class="career-card">
-      <img src="a2a4c1bcda5a433afbf169c00235f847.jpg" alt="Psychologist Icon">
-      <div class="career-info">
-        <h4>Psychologist</h4>
-        <p><strong>Subjects:</strong> Life Sciences, English</p>
-        <p><strong>Duration:</strong> 6 years</p>
-      </div>
-    </div>
-
-    <div class="career-card">
-      <img src="dbf3507f8bb2c5e35a3f1c3020467a4d.jpg" alt="Pilot Icon">
-      <div class="career-info">
-        <h4>Pilot</h4>
-        <p><strong>Subjects:</strong> Math, Physics, English</p>
-        <p><strong>Duration:</strong> 18–36 months</p>
-      </div>
-    </div>
-
-  </div>
-</body>
+    renderCareers(careers);
+  </script></body>
 </html>
