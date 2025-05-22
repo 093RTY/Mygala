@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MyGALA - Resources</title>
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       background-color: #121212;
       color: #f0f0f0;
@@ -13,10 +17,19 @@
       padding: 0;
     }
 
+    body.dark-mode {
+      background-color: #f4f4f4;
+      color: #121212;
+    }
+
     header {
       background-color: #1e1e1e;
       padding: 30px;
       text-align: center;
+    }
+
+    body.dark-mode header {
+      background-color: #e0e0e0;
     }
 
     nav {
@@ -38,25 +51,33 @@
 
     .container {
       padding: 30px 20px;
-      max-width: 900px;
+      max-width: 1000px;
       margin: auto;
     }
 
-    .resource {
-      background-color: #1e1e1e;
-      padding: 20px;
-      margin-bottom: 20px;
-      border-radius: 8px;
+    h2, h3 {
+      color: #ffd700;
     }
 
-    .resource h3 {
-      color: #4dabf7;
-      margin-top: 0;
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
     }
 
-    .resource a {
-      color: #7ecfff;
-      text-decoration: underline;
+    table, th, td {
+      border: 1px solid #555;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+
+    body.dark-mode table, 
+    body.dark-mode th, 
+    body.dark-mode td {
+      border-color: #aaa;
     }
 
     footer {
@@ -67,13 +88,35 @@
       color: #888;
       margin-top: 40px;
     }
+
+    #dark-mode-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    body.dark-mode #dark-mode-toggle {
+      background-color: #ccc;
+      color: #000;
+    }
+
   </style>
 </head>
 <body>
 
+  <!-- Dark Mode Button -->
+  <button id="dark-mode-toggle">Toggle Dark Mode</button>
+
   <header>
-    <h1>Useful Resources</h1>
-    <p>Explore websites, apps, and platforms to help you build your future</p>
+    <h1>Resources</h1>
+    <p>Scholarships and Career Pathways</p>
   </header>
 
   <nav>
@@ -83,39 +126,94 @@
     <a href="careertips.html">Career Tips</a>
     <a href="contact.html">Contact</a>
     <a href="about.html">About</a>
+    <a href="faq.html">FAQ</a>
   </nav>
 
   <div class="container">
 
-    <div class="resource">
-      <h3>NSFAS (Financial Aid)</h3>
-      <p>Apply for funding for university or college in South Africa.</p>
-      <a href="https://www.nsfas.org.za" target="_blank">Visit NSFAS</a>
-    </div>
+    <h2>Scholarship Opportunities</h2>
+    <ul>
+      <li><strong>NSFAS (South Africa):</strong> Financial aid for university and TVET college students.</li>
+      <li><strong>Mandela Rhodes Foundation:</strong> Postgraduate funding for leadership-focused students.</li>
+      <li><strong>DAAD (Germany):</strong> Scholarships for international students studying in Germany.</li>
+      <li><strong>Commonwealth Scholarships:</strong> For students from developing countries to study in the UK.</li>
+      <li><strong>Fulbright Program (USA):</strong> For postgraduate study in the United States.</li>
+    </ul>
 
-    <div class="resource">
-      <h3>Career Portal SA</h3>
-      <p>Browse job opportunities, internships, and bursaries in SA.</p>
-      <a href="https://www.careerportal.co.za" target="_blank">Visit Career Portal</a>
-    </div>
+    <h2>Career Paths, Required Subjects & Course Duration</h2>
 
-    <div class="resource">
-      <h3>University Applications</h3>
-      <p>Check university websites for applications and deadlines.</p>
-      <a href="https://www.universityapplications.co.za" target="_blank">Visit Application Site</a>
-    </div>
-
-    <div class="resource">
-      <h3>LinkedIn Learning</h3>
-      <p>Free courses to improve your career, communication, or tech skills.</p>
-      <a href="https://www.linkedin.com/learning/" target="_blank">Visit LinkedIn Learning</a>
-    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Career</th>
+          <th>Required Subjects</th>
+          <th>Course Duration</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Doctor / Medicine</td>
+          <td>Life Sciences, Physical Science, Mathematics</td>
+          <td>6–7 years</td>
+        </tr>
+        <tr>
+          <td>Software Developer</td>
+          <td>Mathematics, Computer Applications Tech / IT</td>
+          <td>3–4 years</td>
+        </tr>
+        <tr>
+          <td>Lawyer / Advocate</td>
+          <td>English, History, Business Studies</td>
+          <td>4–5 years</td>
+        </tr>
+        <tr>
+          <td>Engineer (Mechanical, Civil, Electrical)</td>
+          <td>Mathematics, Physical Science</td>
+          <td>4 years</td>
+        </tr>
+        <tr>
+          <td>Teacher / Educator</td>
+          <td>English, Any subject you want to teach</td>
+          <td>4 years</td>
+        </tr>
+        <tr>
+          <td>Fashion Designer</td>
+          <td>Visual Arts, Business Studies</td>
+          <td>3 years</td>
+        </tr>
+        <tr>
+          <td>Psychologist</td>
+          <td>Life Sciences, English</td>
+          <td>6 years (including postgraduate)</td>
+        </tr>
+        <tr>
+          <td>Pilot</td>
+          <td>Mathematics, Physical Science, English</td>
+          <td>18–36 months (varies)</td>
+        </tr>
+      </tbody>
+    </table>
 
   </div>
 
   <footer>
-    &copy; 2025 MyGALA | Empowering learners beyond school
+    &copy; 2025 MyGALA | Learn. Plan. Thrive.
   </footer>
+
+  <!-- Dark Mode Script -->
+  <script>
+    const toggleButton = document.getElementById('dark-mode-toggle');
+    const body = document.body;
+
+    if (localStorage.getItem('darkMode') === 'true') {
+      body.classList.add('dark-mode');
+    }
+
+    toggleButton.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      localStorage.setItem('darkMode', body.classList.contains('dark-mode') ? 'true' : 'false');
+    });
+  </script>
 
 </body>
 </html>
