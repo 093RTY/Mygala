@@ -29,10 +29,6 @@
       text-align: center;
     }
 
-    body.dark-mode header {
-      background-color: #e0e0e0;
-    }
-
     nav {
       background-color: #222;
       padding: 10px;
@@ -52,26 +48,8 @@
 
     .container {
       padding: 30px 20px;
-      max-width: 900px;
+      max-width: 1000px;
       margin: auto;
-    }
-
-    .slideshow-container {
-      position: relative;
-      max-width: 100%;
-      margin: 20px auto;
-      border-radius: 10px;
-      overflow: hidden;
-    }
-
-    .slide {
-      display: none;
-      width: 100%;
-      border-radius: 10px;
-    }
-
-    .active {
-      display: block;
     }
 
     footer {
@@ -96,6 +74,28 @@
       z-index: 1000;
     }
 
+    .slideshow {
+      max-width: 1000px;
+      margin: 30px auto;
+      overflow: hidden;
+    }
+
+    .slide {
+      display: none;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .slide.active {
+      display: flex;
+    }
+
+    .slide img {
+      width: 48%;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+
     body.dark-mode #dark-mode-toggle {
       background-color: #ccc;
       color: #000;
@@ -104,7 +104,6 @@
 </head>
 <body>
 
-  <!-- Dark Mode Toggle Button -->
   <button id="dark-mode-toggle">Toggle Dark Mode</button>
 
   <header>
@@ -125,14 +124,22 @@
   <div class="container">
     <h2>Explore Opportunities</h2>
 
-    <!-- Slideshow using previous image -->
-    <div class="slideshow-container">
-      <img class="slide active" src="1a2fe49f444afaa2e74b6adf2179e1ee.jpg" alt="Students planning future">
-      <img class="slide" src="1a2fe49f444afaa2e74b6adf2179e1ee.jpg" alt="University">
-      <img class="slide" src="1a2fe49f444afaa2e74b6adf2179e1ee.jpg" alt="Courses">
+    <div class="slideshow">
+      <div class="slide active">
+        <img src="1affc4b660cd2e7010a83e40779b6b7b.jpg" alt="Students">
+        <img src="7bd1dd8219e3a12afa53f61c1ac84f97.jpg" alt="University">
+      </div>
+      <div class="slide">
+        <img src="3af1d8ebabe9e6dda965aa3ba59edfa9.jpg" alt="University 2">
+        <img src="117b608eccc1d1bb3e20043873be0173f.jpg" alt="Career 1">
+      </div>
+      <div class="slide">
+        <img src="23fb8d4fc28943b6d27a5ab75a71b7166.jpg" alt="Career 2">
+        <img src="d86c1e1590bf4e43dbc7c87f10758458.jpg" alt="Career 2 Second">
+      </div>
     </div>
 
-    <p>MyGALA helps you find your path after school by giving access to career guidance, course options, and post-matric advice.</p>
+    <p>MyGALA helps you find your path after school with tools, resources, and expert advice tailored for students and graduates.</p>
 
     <h3>What You’ll Find:</h3>
     <ul>
@@ -147,7 +154,6 @@
     &copy; 2025 MyGALA | Empowering learners beyond school
   </footer>
 
-  <!-- JavaScript: Dark Mode + Slideshow -->
   <script>
     const toggleButton = document.getElementById('dark-mode-toggle');
     const body = document.body;
@@ -161,20 +167,15 @@
       localStorage.setItem('darkMode', body.classList.contains('dark-mode') ? 'true' : 'false');
     });
 
-    // Slideshow Script
-    let slideIndex = 0;
+    // Slideshow script
     const slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
 
-    function showSlides() {
-      slides.forEach((slide, i) => {
-        slide.classList.remove('active');
-        if (i === slideIndex) slide.classList.add('active');
-      });
-      slideIndex = (slideIndex + 1) % slides.length;
-      setTimeout(showSlides, 3000); // Change every 3 seconds
-    }
-
-    showSlides();
+    setInterval(() => {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (currentSlide + 1) % slides.length;
+      slides[currentSlide].classList.add('active');
+    }, 4000); // changes every 4 seconds
   </script>
 
 </body>
