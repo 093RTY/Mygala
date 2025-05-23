@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,6 +56,24 @@
       margin: auto;
     }
 
+    .slideshow-container {
+      position: relative;
+      max-width: 100%;
+      margin: 20px auto;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .slide {
+      display: none;
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .active {
+      display: block;
+    }
+
     footer {
       background-color: #1e1e1e;
       text-align: center;
@@ -81,7 +100,6 @@
       background-color: #ccc;
       color: #000;
     }
-
   </style>
 </head>
 <body>
@@ -105,12 +123,16 @@
   </nav>
 
   <div class="container">
-  <h2>Explore Opportunities</h2>
+    <h2>Explore Opportunities</h2>
 
-  <img src="1a2fe49f444afaa2e74b6adf2179e1ee.jpg"  alt="Students planning future" style="width: 100%; max-width: 700px; border-radius: 10px; margin: 20px 0;" />
+    <!-- Slideshow using previous image -->
+    <div class="slideshow-container">
+      <img class="slide active" src="1a2fe49f444afaa2e74b6adf2179e1ee.jpg" alt="Students planning future">
+      <img class="slide" src="1a2fe49f444afaa2e74b6adf2179e1ee.jpg" alt="University">
+      <img class="slide" src="1a2fe49f444afaa2e74b6adf2179e1ee.jpg" alt="Courses">
+    </div>
 
-  <p>MyGALA helps you find your path after school...</p>
-</div>
+    <p>MyGALA helps you find your path after school by giving access to career guidance, course options, and post-matric advice.</p>
 
     <h3>What You’ll Find:</h3>
     <ul>
@@ -125,7 +147,7 @@
     &copy; 2025 MyGALA | Empowering learners beyond school
   </footer>
 
-  <!-- Dark Mode JavaScript -->
+  <!-- JavaScript: Dark Mode + Slideshow -->
   <script>
     const toggleButton = document.getElementById('dark-mode-toggle');
     const body = document.body;
@@ -138,6 +160,21 @@
       body.classList.toggle('dark-mode');
       localStorage.setItem('darkMode', body.classList.contains('dark-mode') ? 'true' : 'false');
     });
+
+    // Slideshow Script
+    let slideIndex = 0;
+    const slides = document.querySelectorAll('.slide');
+
+    function showSlides() {
+      slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (i === slideIndex) slide.classList.add('active');
+      });
+      slideIndex = (slideIndex + 1) % slides.length;
+      setTimeout(showSlides, 3000); // Change every 3 seconds
+    }
+
+    showSlides();
   </script>
 
 </body>
