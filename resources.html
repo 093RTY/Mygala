@@ -5,157 +5,130 @@
   <title>MyGALA Resources</title>
   <style>
     body {
-      background-color: #ffffff;
-      color: #000000;
-      font-family: 'Segoe UI', sans-serif;
+      background-color: #121212;
+      color: #000;
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 20px;
     }h2 {
   text-align: center;
-  color: #333;
-  font-size: 32px;
-  margin-bottom: 20px;
+  color: #000;
 }
 
-#searchInput {
-  width: 100%;
-  max-width: 500px;
+.search-bar {
+  max-width: 600px;
+  margin: 20px auto;
+  display: flex;
+}
+
+.search-bar input {
+  flex: 1;
   padding: 10px;
-  margin: 0 auto 30px auto;
-  display: block;
-  border-radius: 8px;
-  border: 1px solid #ccc;
   font-size: 16px;
+  border-radius: 5px;
+  border: none;
 }
 
 .career-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 25px;
+  gap: 20px;
+  padding: 10px;
 }
 
 .career-card {
-  background-color: #f4f4f4;
-  padding: 15px;
+  background-color: #f9f9f9;
+  padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .career-card img {
   width: 100%;
-  max-height: 180px;
+  height: auto;
+  border-radius: 10px;
+  max-height: 300px;
   object-fit: cover;
-  border-radius: 8px;
-}
-
-.career-info {
-  padding-top: 10px;
+  margin-bottom: 15px;
 }
 
 .career-info h4 {
   margin: 10px 0 5px;
-  color: #111;
+  color: #000;
+  font-size: 18px;
 }
 
 .career-info p {
   margin: 5px 0;
   font-size: 14px;
-}
-
-footer {
-  margin-top: 40px;
-  text-align: center;
-  color: #777;
-  font-size: 14px;
+  color: #333;
 }
 
   </style>
 </head>
 <body>
-  <h2>Career Paths, Subjects & Duration</h2>
-  <input type="text" id="searchInput" onkeyup="searchCareers()" placeholder="Search for careers..." />
-  <div class="career-grid" id="careerGrid">
-    <!-- Careers will be injected here by JavaScript -->
-  </div>
-  <footer>
-    &copy; 2025 MyGALA | Empowering learners beyond school
-  </footer>  <script>
-    const careers = [
-      {
-        title: "Doctor",
-        subjects: "Life Sciences, Physical Science, Math",
-        duration: "6–7 years",
-        image: "images/doctor.jpg"
-      },
-      {
-        title: "Software Developer",
-        subjects: "Math, IT / CAT",
-        duration: "3–4 years",
-        image: "images/software.jpg"
-      },
-      {
-        title: "Lawyer",
-        subjects: "English, History",
-        duration: "4–5 years",
-        image: "images/lawyer.jpg"
-      },
-      {
-        title: "Engineer",
-        subjects: "Math, Physical Science",
-        duration: "4 years",
-        image: "images/engineer.jpg"
-      },
-      {
-        title: "Teacher",
-        subjects: "English, Subject to teach",
-        duration: "4 years",
-        image: "images/teacher.jpg"
-      },
-      {
-        title: "Fashion Designer",
-        subjects: "Visual Arts, Business",
-        duration: "3 years",
-        image: "images/fashion.jpg"
-      },
-      {
-        title: "Psychologist",
-        subjects: "Life Sciences, English",
-        duration: "6 years",
-        image: "images/psychologist.jpg"
-      },
-      {
-        title: "Pilot",
-        subjects: "Math, Physics, English",
-        duration: "18–36 months",
-        image: "images/pilot.jpg"
-      },
-      // Add 22 more career objects here as needed
-    ];
+  <h2>Career Paths, Subjects & Duration</h2>  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search for a career...">
+  </div>  <div class="career-grid" id="careerGrid">
+    <!-- Example Career -->
+    <div class="career-card" data-title="Accountant">
+      <img src="images/accountant.jpg" alt="Accountant Icon">
+      <div class="career-info">
+        <h4>Accountant</h4>
+        <p><strong>Subjects:</strong> Math, Accounting, Business Studies</p>
+        <p><strong>Duration:</strong> 3–4 years</p>
+      </div>
+    </div>
+    <!-- Repeat this block for each of the other careers below -->
+    <!-- Careers listed alphabetically -->
+    <div class="career-card" data-title="Architect">
+      <img src="images/architect.jpg" alt="Architect Icon">
+      <div class="career-info">
+        <h4>Architect</h4>
+        <p><strong>Subjects:</strong> Math, Visual Arts, Physics</p>
+        <p><strong>Duration:</strong> 5 years</p>
+      </div>
+    </div>
+    <div class="career-card" data-title="Biotechnologist">
+      <img src="images/biotechnologist.jpg" alt="Biotechnologist Icon">
+      <div class="career-info">
+        <h4>Biotechnologist</h4>
+        <p><strong>Subjects:</strong> Life Sciences, Chemistry</p>
+        <p><strong>Duration:</strong> 4 years</p>
+      </div>
+    </div>
+    <div class="career-card" data-title="Chef">
+      <img src="images/chef.jpg" alt="Chef Icon">
+      <div class="career-info">
+        <h4>Chef</h4>
+        <p><strong>Subjects:</strong> Consumer Studies, Business Studies</p>
+        <p><strong>Duration:</strong> 2–3 years</p>
+      </div>
+    </div>
+    <div class="career-card" data-title="Civil Engineer">
+      <img src="images/civilengineer.jpg" alt="Civil Engineer Icon">
+      <div class="career-info">
+        <h4>Civil Engineer</h4>
+        <p><strong>Subjects:</strong> Math, Physical Science</p>
+        <p><strong>Duration:</strong> 4 years</p>
+      </div>
+    </div>
+    <!-- Add 25 more below using same structure -->
+    <!-- You will replace "images/xxx.jpg" with correct paths -->
+  </div>  <script>
+    // Search functionality
+    const searchInput = document.getElementById("searchInput");
+    const cards = document.querySelectorAll(".career-card");
 
-    const careerGrid = document.getElementById("careerGrid");
-
-    function displayCareers(filteredCareers) {
-      careerGrid.innerHTML = "";
-      filteredCareers.forEach(career => {
-        careerGrid.innerHTML += `
-          <div class="career-card">
-            <img src="${career.image}" alt="${career.title} icon">
-            <div class="career-info">
-              <h4>${career.title}</h4>
-              <p><strong>Subjects:</strong> ${career.subjects}</p>
-              <p><strong>Duration:</strong> ${career.duration}</p>
-            </div>
-          </div>
-        `;
+    searchInput.addEventListener("input", function () {
+      const query = this.value.toLowerCase();
+      cards.forEach(card => {
+        const title = card.dataset.title.toLowerCase();
+        card.style.display = title.includes(query) ? "block" : "none";
       });
-    }
-
-    function searchCareers() {
-      const input = document.getElementById("searchInput").value.toLowerCase();
-      const filtered = careers.filter(career => career.title.toLowerCase().includes(input));
-      displayCareers(filtered);
-    }
-
-    displayCareers(careers);
+    });
   </script></body>
 </html>
