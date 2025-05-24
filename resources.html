@@ -2,133 +2,145 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MyGALA Resources</title>
+  <title>MyGALA - Home</title>
   <style>
-    body {
-      background-color: #121212;
-      color: #000;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 20px;
-    }h2 {
+    html {
+      scroll-behavior: smooth;
+    }body {
+  background-color: #121212;
+  color: #f0f0f0;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.light-mode {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+header, footer, nav {
+  background-color: #1e1e1e;
+  transition: background-color 0.3s;
+}
+
+body.light-mode header,
+body.light-mode footer,
+body.light-mode nav {
+  background-color: #f0f0f0;
+}
+
+header {
+  padding: 40px;
   text-align: center;
+}
+
+nav {
+  padding: 10px;
+  text-align: center;
+}
+
+nav a {
+  color: #ddd;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: bold;
+}
+
+body.light-mode nav a {
   color: #000;
 }
 
-.search-bar {
-  max-width: 600px;
-  margin: 20px auto;
-  display: flex;
+nav a:hover {
+  color: #fff;
 }
 
-.search-bar input {
-  flex: 1;
-  padding: 10px;
-  font-size: 16px;
-  border-radius: 5px;
-  border: none;
+.container {
+  padding: 30px 20px;
+  max-width: 900px;
+  margin: auto;
 }
 
-.career-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-  padding: 10px;
-}
-
-.career-card {
-  background-color: #f9f9f9;
+footer {
+  text-align: center;
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.career-card img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  max-height: 300px;
-  object-fit: cover;
-  margin-bottom: 15px;
-}
-
-.career-info h4 {
-  margin: 10px 0 5px;
-  color: #000;
-  font-size: 18px;
-}
-
-.career-info p {
-  margin: 5px 0;
   font-size: 14px;
-  color: #333;
+  color: #888;
+  margin-top: 40px;
+}
+
+#dark-mode-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+body.light-mode #dark-mode-toggle {
+  background-color: #ccc;
+  color: #000;
+}
+
+h1, h2, h3, p, li {
+  transition: color 0.3s;
+}
+
+body.light-mode h1,
+body.light-mode h2,
+body.light-mode h3,
+body.light-mode p,
+body.light-mode li {
+  color: #000;
 }
 
   </style>
 </head>
-<body>
-  <h2>Career Paths, Subjects & Duration</h2>  <div class="search-bar">
-    <input type="text" id="searchInput" placeholder="Search for a career...">
-  </div>  <div class="career-grid" id="careerGrid">
-    <!-- Example Career -->
-    <div class="career-card" data-title="Accountant">
-      <img src="images/accountant.jpg" alt="Accountant Icon">
-      <div class="career-info">
-        <h4>Accountant</h4>
-        <p><strong>Subjects:</strong> Math, Accounting, Business Studies</p>
-        <p><strong>Duration:</strong> 3–4 years</p>
-      </div>
-    </div>
-    <!-- Repeat this block for each of the other careers below -->
-    <!-- Careers listed alphabetically -->
-    <div class="career-card" data-title="Architect">
-      <img src="images/architect.jpg" alt="Architect Icon">
-      <div class="career-info">
-        <h4>Architect</h4>
-        <p><strong>Subjects:</strong> Math, Visual Arts, Physics</p>
-        <p><strong>Duration:</strong> 5 years</p>
-      </div>
-    </div>
-    <div class="career-card" data-title="Biotechnologist">
-      <img src="images/biotechnologist.jpg" alt="Biotechnologist Icon">
-      <div class="career-info">
-        <h4>Biotechnologist</h4>
-        <p><strong>Subjects:</strong> Life Sciences, Chemistry</p>
-        <p><strong>Duration:</strong> 4 years</p>
-      </div>
-    </div>
-    <div class="career-card" data-title="Chef">
-      <img src="images/chef.jpg" alt="Chef Icon">
-      <div class="career-info">
-        <h4>Chef</h4>
-        <p><strong>Subjects:</strong> Consumer Studies, Business Studies</p>
-        <p><strong>Duration:</strong> 2–3 years</p>
-      </div>
-    </div>
-    <div class="career-card" data-title="Civil Engineer">
-      <img src="images/civilengineer.jpg" alt="Civil Engineer Icon">
-      <div class="career-info">
-        <h4>Civil Engineer</h4>
-        <p><strong>Subjects:</strong> Math, Physical Science</p>
-        <p><strong>Duration:</strong> 4 years</p>
-      </div>
-    </div>
-    <!-- Add 25 more below using same structure -->
-    <!-- You will replace "images/xxx.jpg" with correct paths -->
-  </div>  <script>
-    // Search functionality
-    const searchInput = document.getElementById("searchInput");
-    const cards = document.querySelectorAll(".career-card");
+<body>  <!-- Dark Mode Toggle Button --><button id="dark-mode-toggle">Toggle Dark Mode</button>
 
-    searchInput.addEventListener("input", function () {
-      const query = this.value.toLowerCase();
-      cards.forEach(card => {
-        const title = card.dataset.title.toLowerCase();
-        card.style.display = title.includes(query) ? "block" : "none";
-      });
+  <header>
+    <h1>Welcome to MyGALA</h1>
+    <p>Your future starts here</p>
+  </header>  <nav>
+    <a href="index.html">Home</a>
+    <a href="resources.html">Resources</a>
+    <a href="scholarships.html">Scholarships</a>
+    <a href="careertips.html">Career Tips</a>
+    <a href="contact.html">Contact</a>
+    <a href="about.html">About</a>
+    <a href="faq.html">FAQ</a>
+  </nav>  <div class="container">
+    <h2>Explore Opportunities</h2><img src="1a2fe49f444afaa2e74b6adf2179e1ee.jpg"  alt="Students planning future" style="width: 100%; max-width: 700px; border-radius: 10px; margin: 20px 0;" />
+
+<p>MyGALA helps you find your path after school...</p>
+
+<h3>What You’ll Find:</h3>
+<ul>
+  <li>Scholarship programs</li>
+  <li>Career advice and tools</li>
+  <li>University application help</li>
+  <li>Resources for funding and skills</li>
+</ul>
+
+  </div>  <footer>
+    &copy; 2025 MyGALA | Empowering learners beyond school
+  </footer>  <!-- Dark Mode JavaScript -->  <script>
+    const toggleButton = document.getElementById('dark-mode-toggle');
+    const body = document.body;
+
+    if (localStorage.getItem('darkMode') === 'true') {
+      body.classList.add('light-mode');
+    }
+
+    toggleButton.addEventListener('click', () => {
+      body.classList.toggle('light-mode');
+      localStorage.setItem('darkMode', body.classList.contains('light-mode'));
     });
   </script></body>
 </html>
